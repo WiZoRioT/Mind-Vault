@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindVault Journal Log</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .entry-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .entry-card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .entry-card:hover {
+      transform: scale(1.01);
+    }
+    .entry-thumbnail {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .entry-content {
+      padding: 1rem 1.5rem;
+    }
+    .entry-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .entry-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .entry-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>📘 MindVault Journal Log</h1>
+  <div class="entry-list" id="journal-entries">
+    <!-- Entries will be inserted here -->
+  </div>
+
+  <script>
+    // Sample placeholder data. Replace with real entries later.
+    const entries = [
+      {
+        title: "2025-06-01-Game Night with Glenn",
+        thumbnail: "path/to/image1.jpg",
+        link: "#entry1"
+      },
+      {
+        title: "2025-06-11-Kayla’s Birthday Reflections",
+        thumbnail: "path/to/image2.jpg",
+        link: "#entry2"
+      },
+      {
+        title: "2025-06-05-Lake House Decision",
+        thumbnail: "path/to/image3.jpg",
+        link: "#entry3"
+      }
+    ];
+
+    const container = document.getElementById('journal-entries');
+    entries.forEach(entry => {
+      const card = document.createElement('div');
+      card.className = 'entry-card';
+      card.innerHTML = `
+        <img src="${entry.thumbnail}" alt="Thumbnail" class="entry-thumbnail" />
+        <div class="entry-content">
+          <div class="entry-title">${entry.title}</div>
+          <a href="${entry.link}" class="entry-link">View Entry</a>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+</body>
+</html>
